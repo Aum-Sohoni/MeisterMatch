@@ -1,0 +1,910 @@
+{
+  "workers": [
+    {
+      "id": "w001",
+      "name": "Janis Berzins",
+      "trade": "electrician",
+      "skills": [
+        "panel-install",
+        "wiring"
+      ],
+      "experience_years": 8,
+      "district": "Agenskalns",
+      "languages": [
+        "lv",
+        "ru"
+      ],
+      "availability": "one_to_two_weeks",
+      "available_from": null,
+      "hourly_rate_eur": 16.17
+    },
+    {
+      "id": "w002",
+      "name": "Aleksandrs Petrovs",
+      "trade": "plumber",
+      "skills": [
+        "bathroom-install",
+        "leak-repair",
+        "pipe-fitting"
+      ],
+      "experience_years": 7,
+      "district": "Agenskalns",
+      "languages": [
+        "lv",
+        "ru"
+      ],
+      "availability": "one_to_two_weeks",
+      "available_from": null,
+      "hourly_rate_eur": 16.34
+    },
+    {
+      "id": "w003",
+      "name": "Maris Ozols",
+      "trade": "welder",
+      "skills": [
+        "arc-welding",
+        "metal-fabrication",
+        "mig"
+      ],
+      "experience_years": 23,
+      "district": "Kengarags",
+      "languages": [
+        "lv",
+        "ru"
+      ],
+      "availability": "immediate",
+      "available_from": null,
+      "hourly_rate_eur": 23.7
+    },
+    {
+      "id": "w004",
+      "name": "Dmitrijs Ivanovs",
+      "trade": "carpenter",
+      "skills": [
+        "flooring",
+        "framing",
+        "roofing"
+      ],
+      "experience_years": 20,
+      "district": "Purvciems",
+      "languages": [
+        "lv",
+        "ru",
+        "en"
+      ],
+      "availability": "immediate",
+      "available_from": null,
+      "hourly_rate_eur": 23.95
+    },
+    {
+      "id": "w005",
+      "name": "Kaspars Liepins",
+      "trade": "hvac",
+      "skills": [
+        "ac-install",
+        "heat-pump",
+        "ventilation"
+      ],
+      "experience_years": 21,
+      "district": "Purvciems",
+      "languages": [
+        "lv"
+      ],
+      "availability": "one_to_two_weeks",
+      "available_from": null,
+      "hourly_rate_eur": 22.59
+    },
+    {
+      "id": "w006",
+      "name": "Arturs Kalnins",
+      "trade": "electrician",
+      "skills": [
+        "fault-diagnosis",
+        "panel-install",
+        "wiring"
+      ],
+      "experience_years": 4,
+      "district": "Plavnieki",
+      "languages": [
+        "lv",
+        "ru"
+      ],
+      "availability": "date",
+      "available_from": "2026-10-01",
+      "hourly_rate_eur": 14.74
+    },
+    {
+      "id": "w007",
+      "name": "Sergejs Kuznecovs",
+      "trade": "plumber",
+      "skills": [
+        "bathroom-install",
+        "leak-repair"
+      ],
+      "experience_years": 22,
+      "district": "Imanta",
+      "languages": [
+        "lv"
+      ],
+      "availability": "immediate",
+      "available_from": null,
+      "hourly_rate_eur": 23.33
+    },
+    {
+      "id": "w008",
+      "name": "Edgars Jansons",
+      "trade": "welder",
+      "skills": [
+        "arc-welding",
+        "metal-fabrication",
+        "mig"
+      ],
+      "experience_years": 22,
+      "district": "Centrs",
+      "languages": [
+        "lv",
+        "ru"
+      ],
+      "availability": "immediate",
+      "available_from": null,
+      "hourly_rate_eur": 24.61
+    },
+    {
+      "id": "w009",
+      "name": "Olegs Sokolovs",
+      "trade": "carpenter",
+      "skills": [
+        "flooring",
+        "framing",
+        "furniture"
+      ],
+      "experience_years": 19,
+      "district": "Jugla",
+      "languages": [
+        "lv"
+      ],
+      "availability": "one_to_two_weeks",
+      "available_from": null,
+      "hourly_rate_eur": 23.27
+    },
+    {
+      "id": "w010",
+      "name": "Raimonds Eglitis",
+      "trade": "hvac",
+      "skills": [
+        "ac-install",
+        "heat-pump",
+        "maintenance",
+        "ventilation"
+      ],
+      "experience_years": 8,
+      "district": "Jugla",
+      "languages": [
+        "lv"
+      ],
+      "availability": "one_to_two_weeks",
+      "available_from": null,
+      "hourly_rate_eur": 17.8
+    },
+    {
+      "id": "w011",
+      "name": "Viktors Morozovs",
+      "trade": "electrician",
+      "skills": [
+        "ev-charger",
+        "fault-diagnosis",
+        "lighting",
+        "panel-install",
+        "wiring"
+      ],
+      "experience_years": 25,
+      "district": "Jugla",
+      "languages": [
+        "lv",
+        "ru",
+        "en"
+      ],
+      "availability": "one_to_two_weeks",
+      "available_from": null,
+      "hourly_rate_eur": 25.69
+    },
+    {
+      "id": "w012",
+      "name": "Guntis Abolins",
+      "trade": "plumber",
+      "skills": [
+        "bathroom-install",
+        "heating",
+        "leak-repair"
+      ],
+      "experience_years": 17,
+      "district": "Purvciems",
+      "languages": [
+        "lv",
+        "ru"
+      ],
+      "availability": "date",
+      "available_from": "2026-10-01",
+      "hourly_rate_eur": 21.86
+    },
+    {
+      "id": "w013",
+      "name": "Andrejs Smirnovs",
+      "trade": "welder",
+      "skills": [
+        "arc-welding",
+        "metal-fabrication",
+        "mig",
+        "tig"
+      ],
+      "experience_years": 10,
+      "district": "Ziepniekkalns",
+      "languages": [
+        "lv",
+        "ru"
+      ],
+      "availability": "date",
+      "available_from": "2026-10-01",
+      "hourly_rate_eur": 18.94
+    },
+    {
+      "id": "w014",
+      "name": "Uldis Vitols",
+      "trade": "carpenter",
+      "skills": [
+        "flooring",
+        "framing"
+      ],
+      "experience_years": 10,
+      "district": "Kengarags",
+      "languages": [
+        "lv"
+      ],
+      "availability": "immediate",
+      "available_from": null,
+      "hourly_rate_eur": 18.53
+    },
+    {
+      "id": "w015",
+      "name": "Igors Fedorovs",
+      "trade": "hvac",
+      "skills": [
+        "ac-install",
+        "heat-pump",
+        "maintenance",
+        "ventilation"
+      ],
+      "experience_years": 1,
+      "district": "Ziepniekkalns",
+      "languages": [
+        "lv",
+        "ru"
+      ],
+      "availability": "date",
+      "available_from": "2026-10-01",
+      "hourly_rate_eur": 12.98
+    },
+    {
+      "id": "w016",
+      "name": "Normunds Priede",
+      "trade": "electrician",
+      "skills": [
+        "ev-charger",
+        "fault-diagnosis",
+        "wiring"
+      ],
+      "experience_years": 24,
+      "district": "Plavnieki",
+      "languages": [
+        "lv",
+        "en"
+      ],
+      "availability": "one_to_two_weeks",
+      "available_from": null,
+      "hourly_rate_eur": 24.26
+    },
+    {
+      "id": "w017",
+      "name": "Vitalijs Orlovs",
+      "trade": "plumber",
+      "skills": [
+        "bathroom-install",
+        "heating",
+        "leak-repair"
+      ],
+      "experience_years": 7,
+      "district": "Ziepniekkalns",
+      "languages": [
+        "lv"
+      ],
+      "availability": "one_to_two_weeks",
+      "available_from": null,
+      "hourly_rate_eur": 16.3
+    },
+    {
+      "id": "w018",
+      "name": "Aivars Kruminsh",
+      "trade": "welder",
+      "skills": [
+        "arc-welding",
+        "metal-fabrication",
+        "mig",
+        "tig"
+      ],
+      "experience_years": 8,
+      "district": "Imanta",
+      "languages": [
+        "lv",
+        "ru"
+      ],
+      "availability": "one_to_two_weeks",
+      "available_from": null,
+      "hourly_rate_eur": 17.18
+    },
+    {
+      "id": "w019",
+      "name": "Deniss Volkovs",
+      "trade": "carpenter",
+      "skills": [
+        "flooring",
+        "framing"
+      ],
+      "experience_years": 21,
+      "district": "Kengarags",
+      "languages": [
+        "lv",
+        "ru",
+        "en"
+      ],
+      "availability": "immediate",
+      "available_from": null,
+      "hourly_rate_eur": 22.64
+    },
+    {
+      "id": "w020",
+      "name": "Mareks Strazdins",
+      "trade": "hvac",
+      "skills": [
+        "heat-pump",
+        "maintenance"
+      ],
+      "experience_years": 16,
+      "district": "Sarkandaugava",
+      "languages": [
+        "lv",
+        "ru",
+        "en"
+      ],
+      "availability": "date",
+      "available_from": "2026-10-01",
+      "hourly_rate_eur": 21.15
+    },
+    {
+      "id": "w021",
+      "name": "Juris Kalns",
+      "trade": "electrician",
+      "skills": [
+        "ev-charger",
+        "fault-diagnosis",
+        "wiring"
+      ],
+      "experience_years": 4,
+      "district": "Teika",
+      "languages": [
+        "lv",
+        "ru"
+      ],
+      "availability": "immediate",
+      "available_from": null,
+      "hourly_rate_eur": 15.73
+    },
+    {
+      "id": "w022",
+      "name": "Pavels Grigorjevs",
+      "trade": "plumber",
+      "skills": [
+        "leak-repair",
+        "pipe-fitting"
+      ],
+      "experience_years": 13,
+      "district": "Imanta",
+      "languages": [
+        "lv"
+      ],
+      "availability": "immediate",
+      "available_from": null,
+      "hourly_rate_eur": 18.88
+    },
+    {
+      "id": "w023",
+      "name": "Ivars Meija",
+      "trade": "welder",
+      "skills": [
+        "metal-fabrication",
+        "mig",
+        "tig"
+      ],
+      "experience_years": 9,
+      "district": "Agenskalns",
+      "languages": [
+        "lv"
+      ],
+      "availability": "immediate",
+      "available_from": null,
+      "hourly_rate_eur": 16.7
+    },
+    {
+      "id": "w024",
+      "name": "Ruslans Jegorovs",
+      "trade": "carpenter",
+      "skills": [
+        "flooring",
+        "framing",
+        "furniture",
+        "roofing"
+      ],
+      "experience_years": 14,
+      "district": "Centrs",
+      "languages": [
+        "lv"
+      ],
+      "availability": "immediate",
+      "available_from": null,
+      "hourly_rate_eur": 19.33
+    },
+    {
+      "id": "w025",
+      "name": "Ainars Plavins",
+      "trade": "hvac",
+      "skills": [
+        "ac-install",
+        "maintenance"
+      ],
+      "experience_years": 15,
+      "district": "Agenskalns",
+      "languages": [
+        "lv",
+        "ru"
+      ],
+      "availability": "one_to_two_weeks",
+      "available_from": null,
+      "hourly_rate_eur": 20.82
+    },
+    {
+      "id": "w026",
+      "name": "Stanislavs Kozlovs",
+      "trade": "electrician",
+      "skills": [
+        "ev-charger",
+        "fault-diagnosis",
+        "lighting",
+        "panel-install",
+        "wiring"
+      ],
+      "experience_years": 19,
+      "district": "Centrs",
+      "languages": [
+        "lv",
+        "en"
+      ],
+      "availability": "immediate",
+      "available_from": null,
+      "hourly_rate_eur": 22.67
+    },
+    {
+      "id": "w027",
+      "name": "Vilnis Auzins",
+      "trade": "plumber",
+      "skills": [
+        "bathroom-install",
+        "heating",
+        "leak-repair",
+        "pipe-fitting"
+      ],
+      "experience_years": 3,
+      "district": "Purvciems",
+      "languages": [
+        "lv"
+      ],
+      "availability": "immediate",
+      "available_from": null,
+      "hourly_rate_eur": 15.38
+    },
+    {
+      "id": "w028",
+      "name": "Mihails Zaharovs",
+      "trade": "welder",
+      "skills": [
+        "arc-welding",
+        "metal-fabrication",
+        "mig",
+        "tig"
+      ],
+      "experience_years": 14,
+      "district": "Ziepniekkalns",
+      "languages": [
+        "lv"
+      ],
+      "availability": "immediate",
+      "available_from": null,
+      "hourly_rate_eur": 19.41
+    },
+    {
+      "id": "w029",
+      "name": "Gatis Riekstins",
+      "trade": "carpenter",
+      "skills": [
+        "flooring",
+        "framing",
+        "furniture",
+        "roofing"
+      ],
+      "experience_years": 5,
+      "district": "Purvciems",
+      "languages": [
+        "lv"
+      ],
+      "availability": "immediate",
+      "available_from": null,
+      "hourly_rate_eur": 14.52
+    },
+    {
+      "id": "w030",
+      "name": "Anton Zagorodnijs",
+      "trade": "hvac",
+      "skills": [
+        "ac-install",
+        "heat-pump",
+        "maintenance",
+        "ventilation"
+      ],
+      "experience_years": 5,
+      "district": "Kengarags",
+      "languages": [
+        "lv"
+      ],
+      "availability": "date",
+      "available_from": "2026-10-01",
+      "hourly_rate_eur": 15.07
+    }
+  ],
+  "jobs": [
+    {
+      "id": "j001",
+      "employer": "SIA Ziemelu Jumti",
+      "title": "Dzivoklu elektroinstalacija Purvciema",
+      "trade": "electrician",
+      "required_skills": [
+        "ev-charger",
+        "panel-install"
+      ],
+      "district": "Agenskalns",
+      "pay_min_eur_h": 15.67,
+      "pay_max_eur_h": 17.7,
+      "start": "date",
+      "start_date": "2026-10-05",
+      "season": "all_year",
+      "description_lv": "Steidzami vajadzīgs: electrician. Prasmes: ev-charger, panel-install."
+    },
+    {
+      "id": "j002",
+      "employer": "SIA Ziemelu Jumti",
+      "title": "Apkures montaza Jugla",
+      "trade": "plumber",
+      "required_skills": [
+        "leak-repair",
+        "pipe-fitting"
+      ],
+      "district": "Agenskalns",
+      "pay_min_eur_h": 13.59,
+      "pay_max_eur_h": 16.21,
+      "start": "date",
+      "start_date": "2026-10-05",
+      "season": "summer",
+      "description_lv": "Steidzami vajadzīgs: plumber. Prasmes: leak-repair, pipe-fitting."
+    },
+    {
+      "id": "j003",
+      "employer": "SIA Juglas Siltums",
+      "title": "Metalkonstrukciju metinasana Kengaraga",
+      "trade": "welder",
+      "required_skills": [
+        "arc-welding"
+      ],
+      "district": "Agenskalns",
+      "pay_min_eur_h": 13.22,
+      "pay_max_eur_h": 17.17,
+      "start": "one_to_two_weeks",
+      "start_date": null,
+      "season": "all_year",
+      "description_lv": "Steidzami vajadzīgs: welder. Prasmes: arc-welding."
+    },
+    {
+      "id": "j004",
+      "employer": "SIA Rigas Elektriba",
+      "title": "Jumta konstrukcija Ziepniekkalns",
+      "trade": "carpenter",
+      "required_skills": [
+        "framing"
+      ],
+      "district": "Centrs",
+      "pay_min_eur_h": 15.81,
+      "pay_max_eur_h": 19.14,
+      "start": "date",
+      "start_date": "2026-10-05",
+      "season": "summer",
+      "description_lv": "Steidzami vajadzīgs: carpenter. Prasmes: framing."
+    },
+    {
+      "id": "j005",
+      "employer": "SIA Pārdaugavas Nami",
+      "title": "Ventilacija noliktavai Plavniekos",
+      "trade": "hvac",
+      "required_skills": [
+        "ac-install",
+        "heat-pump"
+      ],
+      "district": "Centrs",
+      "pay_min_eur_h": 14.65,
+      "pay_max_eur_h": 17.1,
+      "start": "one_to_two_weeks",
+      "start_date": null,
+      "season": "all_year",
+      "description_lv": "Steidzami vajadzīgs: hvac. Prasmes: ac-install, heat-pump."
+    },
+    {
+      "id": "j006",
+      "employer": "SIA Baltijas Būve",
+      "title": "Biroja apgaismojums Centra",
+      "trade": "electrician",
+      "required_skills": [
+        "ev-charger",
+        "lighting",
+        "wiring"
+      ],
+      "district": "Centrs",
+      "pay_min_eur_h": 15.5,
+      "pay_max_eur_h": 18.73,
+      "start": "immediate",
+      "start_date": null,
+      "season": "all_year",
+      "description_lv": "Steidzami vajadzīgs: electrician. Prasmes: ev-charger, lighting, wiring."
+    },
+    {
+      "id": "j007",
+      "employer": "SIA Rigas Elektriba",
+      "title": "Vannasistabas remonts Imanta",
+      "trade": "plumber",
+      "required_skills": [
+        "bathroom-install"
+      ],
+      "district": "Kengarags",
+      "pay_min_eur_h": 13.26,
+      "pay_max_eur_h": 18.38,
+      "start": "immediate",
+      "start_date": null,
+      "season": "all_year",
+      "description_lv": "Steidzami vajadzīgs: plumber. Prasmes: bathroom-install."
+    },
+    {
+      "id": "j008",
+      "employer": "SIA Baltijas Būve",
+      "title": "Margu izgatavosana Sarkandaugava",
+      "trade": "welder",
+      "required_skills": [
+        "mig",
+        "tig"
+      ],
+      "district": "Jugla",
+      "pay_min_eur_h": 17.19,
+      "pay_max_eur_h": 19.29,
+      "start": "date",
+      "start_date": "2026-10-05",
+      "season": "all_year",
+      "description_lv": "Steidzami vajadzīgs: welder. Prasmes: mig, tig."
+    },
+    {
+      "id": "j009",
+      "employer": "SIA Juglas Siltums",
+      "title": "Grīdu ieklasana Teika",
+      "trade": "carpenter",
+      "required_skills": [
+        "flooring",
+        "furniture"
+      ],
+      "district": "Plavnieki",
+      "pay_min_eur_h": 17.18,
+      "pay_max_eur_h": 22.33,
+      "start": "date",
+      "start_date": "2026-10-05",
+      "season": "summer",
+      "description_lv": "Steidzami vajadzīgs: carpenter. Prasmes: flooring, furniture."
+    },
+    {
+      "id": "j010",
+      "employer": "SIA Kengaraga Metāls",
+      "title": "Siltumsuknu uzstadisana Agenskalna",
+      "trade": "hvac",
+      "required_skills": [
+        "maintenance"
+      ],
+      "district": "Kengarags",
+      "pay_min_eur_h": 13.33,
+      "pay_max_eur_h": 16.55,
+      "start": "date",
+      "start_date": "2026-10-05",
+      "season": "all_year",
+      "description_lv": "Steidzami vajadzīgs: hvac. Prasmes: maintenance."
+    },
+    {
+      "id": "j011",
+      "employer": "SIA Juglas Siltums",
+      "title": "Dzivoklu elektroinstalacija Purvciema",
+      "trade": "electrician",
+      "required_skills": [
+        "lighting"
+      ],
+      "district": "Ziepniekkalns",
+      "pay_min_eur_h": 12.14,
+      "pay_max_eur_h": 17.6,
+      "start": "immediate",
+      "start_date": null,
+      "season": "all_year",
+      "description_lv": "Steidzami vajadzīgs: electrician. Prasmes: lighting."
+    },
+    {
+      "id": "j012",
+      "employer": "SIA Pārdaugavas Nami",
+      "title": "Apkures montaza Jugla",
+      "trade": "plumber",
+      "required_skills": [
+        "bathroom-install",
+        "leak-repair"
+      ],
+      "district": "Kengarags",
+      "pay_min_eur_h": 15.06,
+      "pay_max_eur_h": 20.82,
+      "start": "one_to_two_weeks",
+      "start_date": null,
+      "season": "summer",
+      "description_lv": "Steidzami vajadzīgs: plumber. Prasmes: bathroom-install, leak-repair."
+    },
+    {
+      "id": "j013",
+      "employer": "SIA Rigas Elektriba",
+      "title": "Metalkonstrukciju metinasana Kengaraga",
+      "trade": "welder",
+      "required_skills": [
+        "arc-welding",
+        "tig"
+      ],
+      "district": "Sarkandaugava",
+      "pay_min_eur_h": 17.78,
+      "pay_max_eur_h": 21.52,
+      "start": "immediate",
+      "start_date": null,
+      "season": "all_year",
+      "description_lv": "Steidzami vajadzīgs: welder. Prasmes: arc-welding, tig."
+    },
+    {
+      "id": "j014",
+      "employer": "SIA Pārdaugavas Nami",
+      "title": "Jumta konstrukcija Ziepniekkalns",
+      "trade": "carpenter",
+      "required_skills": [
+        "flooring",
+        "furniture"
+      ],
+      "district": "Imanta",
+      "pay_min_eur_h": 17.91,
+      "pay_max_eur_h": 20.93,
+      "start": "immediate",
+      "start_date": null,
+      "season": "all_year",
+      "description_lv": "Steidzami vajadzīgs: carpenter. Prasmes: flooring, furniture."
+    },
+    {
+      "id": "j015",
+      "employer": "SIA Ziemelu Jumti",
+      "title": "Ventilacija noliktavai Plavniekos",
+      "trade": "hvac",
+      "required_skills": [
+        "ac-install"
+      ],
+      "district": "Kengarags",
+      "pay_min_eur_h": 14.19,
+      "pay_max_eur_h": 18.68,
+      "start": "immediate",
+      "start_date": null,
+      "season": "winter",
+      "description_lv": "Steidzami vajadzīgs: hvac. Prasmes: ac-install."
+    },
+    {
+      "id": "j016",
+      "employer": "SIA Juglas Siltums",
+      "title": "Biroja apgaismojums Centra",
+      "trade": "electrician",
+      "required_skills": [
+        "panel-install"
+      ],
+      "district": "Jugla",
+      "pay_min_eur_h": 15.04,
+      "pay_max_eur_h": 19.83,
+      "start": "one_to_two_weeks",
+      "start_date": null,
+      "season": "winter",
+      "description_lv": "Steidzami vajadzīgs: electrician. Prasmes: panel-install."
+    },
+    {
+      "id": "j017",
+      "employer": "SIA Ziemelu Jumti",
+      "title": "Vannasistabas remonts Imanta",
+      "trade": "plumber",
+      "required_skills": [
+        "leak-repair"
+      ],
+      "district": "Plavnieki",
+      "pay_min_eur_h": 15.99,
+      "pay_max_eur_h": 20.45,
+      "start": "immediate",
+      "start_date": null,
+      "season": "summer",
+      "description_lv": "Steidzami vajadzīgs: plumber. Prasmes: leak-repair."
+    },
+    {
+      "id": "j018",
+      "employer": "SIA Pārdaugavas Nami",
+      "title": "Margu izgatavosana Sarkandaugava",
+      "trade": "welder",
+      "required_skills": [
+        "arc-welding",
+        "mig",
+        "tig"
+      ],
+      "district": "Kengarags",
+      "pay_min_eur_h": 13.26,
+      "pay_max_eur_h": 17.12,
+      "start": "one_to_two_weeks",
+      "start_date": null,
+      "season": "winter",
+      "description_lv": "Steidzami vajadzīgs: welder. Prasmes: arc-welding, mig, tig."
+    },
+    {
+      "id": "j019",
+      "employer": "SIA Ziemelu Jumti",
+      "title": "Grīdu ieklasana Teika",
+      "trade": "carpenter",
+      "required_skills": [
+        "furniture"
+      ],
+      "district": "Plavnieki",
+      "pay_min_eur_h": 16.76,
+      "pay_max_eur_h": 21.4,
+      "start": "date",
+      "start_date": "2026-10-05",
+      "season": "summer",
+      "description_lv": "Steidzami vajadzīgs: carpenter. Prasmes: furniture."
+    },
+    {
+      "id": "j020",
+      "employer": "SIA Baltijas Būve",
+      "title": "Siltumsuknu uzstadisana Agenskalna",
+      "trade": "hvac",
+      "required_skills": [
+        "heat-pump",
+        "maintenance",
+        "ventilation"
+      ],
+      "district": "Plavnieki",
+      "pay_min_eur_h": 16.04,
+      "pay_max_eur_h": 18.14,
+      "start": "immediate",
+      "start_date": null,
+      "season": "summer",
+      "description_lv": "Steidzami vajadzīgs: hvac. Prasmes: heat-pump, maintenance, ventilation."
+    }
+  ],
+  "swipes": [],
+  "matches": [],
+  "feedback": []
+}

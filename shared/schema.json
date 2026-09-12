@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://meistermatch.lv/schemas/contract-v1.json",
+  "title": "MeisterMatch data contract v1 (Phase 0)",
+  "description": "Source of truth for worker/job cards, swipes, matches and feedback. Mirrored in shared/contract.ts and api/app/models.py.",
+  "$defs": {
+    "Trade": {
+      "type": "string",
+      "enum": ["electrician", "plumber", "welder", "carpenter", "hvac"]
+    },
+    "Language": {
+      "type": "string",
+      "enum": ["lv", "ru", "en"]
+    },
+    "Worker": {
+      "type": "object",
+      "required": ["id", "name", "trade", "skills", "experience_years", "district", "languages", "availability", "hourly_rate_eur"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^w[0-9]{3}$" },
+        "name": { "type": "string", "minLength": 1 },
+        "trade": { "$ref": "#/$defs/Trade" },
+        "skills": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "experience_years": { "type": "integer", "minimum": 0, "maximum": 60 },
+        "district": { "type": "string", "minLength": 1 },
+        "languages": { "type": "array", "items": { "$ref": "#/$defs/Language" }, "minItems": 1 },
+        "availability": { "type": "string", "enum": ["immediate", "one_to_two_weeks", "date"] },
+        "available_from": { "type": ["string", "null"], "format": "date" },
+        "hourly_rate_eur": { "type": "number", "minimum": 1 }
+      }
+    },
+    "Job": {
+      "type": "object",
+      "required": ["id", "employer", "title", "trade", "required_skills", "district", "pay_min_eur_h", "pay_max_eur_h", "start", "season"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^j[0-9]{3}$" },
+        "employer": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "trade": { "$ref": "#/$defs/Trade" },
+        "required_skills": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "district": { "type": "string", "minLength": 1 },
+        "pay_min_eur_h": { "type": "number", "minimum": 1 },
+        "pay_max_eur_h": { "type": "number", "minimum": 1 },
+        "start": { "type": "string", "enum": ["immediate", "one_to_two_weeks", "date"] },
+        "start_date": { "type": ["string", "null"], "format": "date" },
+        "season": { "type": "string", "enum": ["summer", "winter", "all_year"] },
+        "description_lv": { "type": "string" }
+      }
+    },
+    "Swipe": {
+      "type": "object",
+      "required": ["id", "actor_type", "actor_id", "target_type", "target_id", "direction"],
+      "properties": {
+        "id": { "type": "string" },
+        "actor_type": { "type": "string", "enum": ["worker", "employer"] },
+        "actor_id": { "type": "string" },
+        "target_type": { "type": "string", "enum": ["job", "worker"] },
+        "target_id": { "type": "string" },
+        "direction": { "type": "string", "enum": ["like", "pass"] }
+      }
+    },
+    "Match": {
+      "type": "object",
+      "required": ["id", "worker_id", "job_id"],
+      "properties": {
+        "id": { "type": "string" },
+        "worker_id": { "type": "string" },
+        "job_id": { "type": "string" }
+      }
+    },
+    "Feedback": {
+      "type": "object",
+      "required": ["id", "worker_id", "job_id", "label", "by"],
+      "properties": {
+        "id": { "type": "string" },
+        "worker_id": { "type": "string" },
+        "job_id": { "type": "string" },
+        "label": { "type": "string", "enum": ["relevant", "irrelevant"] },
+        "by": { "type": "string", "enum": ["worker", "employer", "recruiter"] }
+      }
+    }
+  }
+}
