@@ -71,3 +71,23 @@ export interface SeedData {
   matches: Match[];
   feedback: Feedback[];
 }
+
+export type RankMode = "jobs_for_worker" | "workers_for_job";
+
+export interface RankRequest {
+  mode: RankMode;
+  worker?: Worker;
+  job?: Job;
+  candidates: Worker[] | Job[];
+  limit: number;
+}
+
+export interface RankedItem {
+  id: string;
+  score: number;
+  reasons: string[];
+}
+
+export interface RankResponse {
+  results: RankedItem[];
+}

@@ -13,6 +13,10 @@ venv/
 .env
 .env.*
 
+# Runtime (regenerated, never commit)
+data/store.json
+*.pid
+
 # OS / editors
 .DS_Store
 Thumbs.db

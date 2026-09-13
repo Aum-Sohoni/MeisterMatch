@@ -1,5 +1,5 @@
 """MeisterMatch data contract v1 (Phase 0) — Pydantic mirror of shared/schema.json."""
-from typing import List, Literal, Optional
+from typing import Any, Dict, List, Literal, Optional
 
 from pydantic import BaseModel, Field
 
@@ -58,3 +58,21 @@ class Feedback(BaseModel):
     job_id: str
     label: Literal["relevant", "irrelevant"]
     by: Literal["worker", "employer", "recruiter"]
+
+
+class RankRequest(BaseModel):
+    mode: Literal["jobs_for_worker", "workers_for_job"]
+    worker: Optional[Worker] = None
+    job: Optional[Job] = None
+    candidates: List[Dict[str, Any]] = []
+    limit: int = Field(default=10, ge=1, le=50)
+
+
+class RankedItem(BaseModel):
+    id: str
+    score: int
+    reasons: List[str]
+
+
+class RankResponse(BaseModel):
+    results: List[RankedItem]

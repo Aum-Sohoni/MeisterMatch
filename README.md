@@ -5,34 +5,35 @@ Bachelor thesis prototype — swipe-based, mutual matching, active-learning rank
 
 ## Layout
 
-- `web/` — React + Vite + TypeScript frontend (swipe UI, Phase 1)
-- `api/` — FastAPI backend (Node/TS API + Python ML service split lands in Phase 1)
+- `web/` — React + Vite + TypeScript swipe UI (worker deck + employer deck + matches)
+- `api/` — Node + TypeScript + Express API (decks, swipes, mutual matches; :3001)
+- `ml/` — FastAPI rank service, rule-based baseline with reasons (:8001)
 - `shared/` — data contract (source of truth):
   - `schema.json` — JSON Schema for workers, jobs, swipes, matches, feedback
-  - `contract.ts` — TypeScript mirror
+  - `contract.ts` — TypeScript mirror (incl. rank DTOs)
 - `scripts/seed.py` — deterministic synthetic data (30 workers + 20 jobs)
 - `data/seed.json` — generated seed output (reproducible, seed 42)
+- `data/store.json` — runtime copy of the seed + swipes/matches (gitignored)
 
-`api/app/models.py` is the Pydantic mirror of the contract.
+`ml/models.py` is the Pydantic mirror of the contract.
 
-## Phase 0 commands
+## Run (3 terminals)
 
 ```powershell
-# seed data
-python scripts/seed.py
+# 1. rank service
+.\.venv\Scripts\python -m uvicorn main:app --app-dir ml --port 8001
 
-# frontend
-cd web; npm install; npm run dev
+# 2. api
+cd api; npm install; npm run dev   # http://127.0.0.1:3001
 
-# backend (Phase 1+)
-pip install -r api/requirements.txt
-uvicorn app.main:app --reload --app-dir api
+# 3. frontend
+cd web; npm install; npm run dev   # http://127.0.0.1:5173
 ```
 
 ## Roadmap
 
 - **Phase 0** (done): repo, contract, seed data
-- **Phase 1**: vertical slice — swipe API, mutual match, rule-based ranker, React swipe screen
+- **Phase 1** (done): vertical slice — swipe API, mutual match, rule-based ranker, React swipe screen
 - **Phase 2**: active-learning feedback loop (uncertainty sampling, seasonal re-training)
 - **Phase 3**: evaluation vs. static baseline → thesis results chapter
 - **Phase 4**: polish, LV/RU/EN, ethics, Anotācija (voice onboarding = future work)
