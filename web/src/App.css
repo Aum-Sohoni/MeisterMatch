@@ -1,131 +1,474 @@
-.mm {
-  max-width: 560px;
+/* MeisterMatch Platform UI — Design System
+   Colors: #00AEEF (riga.blue), #0B1E2D (riga.dark), #9E3039 (latvia.red)
+   Font: Inter 300-800, from Google Fonts
+*/
+
+/* === Root variables === */
+:root {
+  --riga-blue: #00AEEF;
+  --riga-dark: #0B1E2D;
+  --riga-surface: #162438;
+  --riga-card: #0F1B29;
+  --latvia-red: #9E3039;
+  --color-text: #F2F4F7;
+  --color-text-secondary: #98A2B3;
+  --color-border: #334155;
+  --radius: 24px;
+  --radius-lg: 32px;
+}
+
+/* === Grid overlay === */
+.app-grid {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(51, 65, 85, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(51, 65, 85, 0.3) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* === Glow blobs === */
+.app-blob {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app-blob-1 {
+  width: 500px;
+  height: 500px;
+  background: var(--riga-blue);
+  top: -150px;
+  right: -100px;
+}
+
+.app-blob-2 {
+  width: 400px;
+  height: 400px;
+  background: var(--latvia-red);
+  bottom: -100px;
+  left: -100px;
+}
+
+/* === Base layout === */
+.app {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding: 32px 24px;
+  max-width: 640px;
   margin: 0 auto;
-  padding: 16px;
-  font-family: system-ui, sans-serif;
 }
 
-.mm header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
+/* === Header === */
+.app-header {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.mm h1 {
-  font-size: 20px;
+.app-brand {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--riga-blue);
+  margin-bottom: 8px;
+}
+
+.app-title {
+  font-size: clamp(28px, 6vw, 42px);
+  font-weight: 800;
+  color: var(--color-text);
+  margin: 0 0 8px;
+  line-height: 1.1;
+}
+
+.app-subtitle {
+  font-size: clamp(14px, 3vw, 18px);
+  font-weight: 400;
+  color: var(--color-text-secondary);
   margin: 0;
 }
 
-.tabs button {
-  margin-left: 8px;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background: #fff;
-  cursor: pointer;
-}
-
-.tabs button.active {
-  background: #00aeef;
-  border-color: #00aeef;
-  color: #fff;
-}
-
-.picker {
-  margin: 16px 0;
-}
-
-.picker select {
-  padding: 6px;
-  max-width: 100%;
-}
-
-.error {
-  background: #fde8e8;
-  border: 1px solid #e88;
-  padding: 8px;
-  border-radius: 6px;
-}
-
-.match-banner {
-  background: #e6f9ec;
-  border: 1px solid #4caf50;
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 12px;
+/* === Tabs === */
+.tabs {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 24px 0;
 }
 
-.deck .card {
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+.tab-btn {
+  padding: 10px 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
-.card h3 {
-  margin: 0 0 4px;
+.tab-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
-.meta {
-  color: #555;
+.tab-btn.active {
+  background: var(--riga-blue);
+  border-color: var(--riga-blue);
+  color: #0B1E2D;
+}
+
+/* === Picker === */
+.picker {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0;
+}
+
+.picker label {
   font-size: 14px;
-}
-
-.score {
+  color: var(--color-text-secondary);
   display: flex;
   align-items: center;
   gap: 8px;
-  margin: 12px 0 4px;
 }
 
-.score .bar {
-  height: 8px;
-  background: #00aeef;
-  border-radius: 4px;
-}
-
-.reasons {
+.picker select {
+  background: var(--riga-card);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 8px 16px;
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 14px;
-  padding-left: 20px;
-  margin: 4px 0 0;
-}
-
-.actions {
-  display: flex;
-  gap: 12px;
-  margin-top: 12px;
-}
-
-.actions button {
-  flex: 1;
-  padding: 12px;
-  font-size: 16px;
-  border-radius: 8px;
-  border: none;
   cursor: pointer;
 }
 
-.actions .pass {
-  background: #eee;
+/* === Match banner === */
+.match-banner {
+  background: linear-gradient(135deg, rgba(0, 174, 239, 0.15), rgba(158, 48, 57, 0.15));
+  border: 1px solid var(--riga-blue);
+  border-radius: var(--radius-lg);
+  padding: 16px 24px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  animation: slideDown 0.4s ease;
 }
 
-.actions .like {
-  background: #00aeef;
+.match-banner-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--riga-blue);
+}
+
+.match-banner button {
+  background: var(--latvia-red);
   color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 16px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-.left,
-.done {
-  color: #666;
+/* === Deck === */
+.deck {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.card {
+  background: var(--riga-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  width: 100%;
+  max-width: 480px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  animation: cardEnter 0.5s ease;
+}
+
+.card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 8px;
+}
+
+.meta {
+  color: var(--color-text-secondary);
   font-size: 14px;
+  margin: 0 0 8px;
 }
 
+.card-description {
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  margin: 0 0 16px;
+  line-height: 1.6;
+}
+
+.skills-tag {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 16px;
+}
+
+.skills-tag span {
+  background: rgba(0, 174, 239, 0.12);
+  color: var(--riga-blue);
+  border: 1px solid rgba(0, 174, 239, 0.25);
+  border-radius: 9999px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* === Score === */
+.score {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0 8px;
+}
+
+.score-bar-container {
+  flex: 1;
+  height: 8px;
+  background: rgba(51, 65, 85, 0.5);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.score-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--riga-blue), var(--latvia-red));
+  border-radius: 4px;
+  transition: width 0.6s ease;
+}
+
+.score-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--riga-blue);
+  min-width: 32px;
+  text-align: right;
+}
+
+/* === Reasons === */
+.reasons {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+
+.reasons li {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  padding: 4px 0;
+  padding-left: 16px;
+  position: relative;
+}
+
+.reasons li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--riga-blue);
+  font-weight: 700;
+}
+
+/* === Actions === */
+.actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.action-btn {
+  flex: 1;
+  max-width: 160px;
+  padding: 16px 24px;
+  font-size: 18px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 700;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.action-btn:active {
+  transform: translateY(0);
+}
+
+.action-btn-pass {
+  background: rgba(51, 65, 85, 0.5);
+  color: var(--color-text-secondary);
+  border: 2px solid var(--color-border);
+}
+
+.action-btn-like {
+  background: linear-gradient(135deg, var(--riga-blue), #0088cc);
+  color: #0B1E2D;
+  box-shadow: 0 4px 16px rgba(0, 174, 239, 0.4);
+}
+
+.action-btn-like:hover {
+  box-shadow: 0 6px 24px rgba(0, 174, 239, 0.5);
+}
+
+.cards-left {
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  margin: 16px 0;
+}
+
+.done {
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: 15px;
+  padding: 24px;
+}
+
+/* === Matches === */
 .matches {
-  margin-top: 24px;
-  border-top: 1px solid #ddd;
-  padding-top: 8px;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+}
+
+.matches h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 16px;
+}
+
+.matches ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.matches li {
+  background: var(--riga-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.matches li strong {
+  color: var(--riga-blue);
+}
+
+/* === Error === */
+.error {
+  background: rgba(158, 48, 57, 0.15);
+  border: 1px solid rgba(158, 48, 57, 0.5);
+  color: var(--latvia-red);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  font-size: 14px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* === Status badge === */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.badge-blue {
+  background: rgba(0, 174, 239, 0.15);
+  color: var(--riga-blue);
+  border: 1px solid rgba(0, 174, 239, 0.3);
+}
+
+/* === Animations === */
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Reduced motion === */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0ms !important;
+  }
+}
+
+/* === Responsive === */
+@media (max-width: 480px) {
+  .app {
+    padding: 16px 12px;
+  }
+  .card {
+    padding: 16px;
+    border-radius: var(--radius);
+  }
+  .actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .action-btn {
+    max-width: 100%;
+    width: 100%;
+  }
 }

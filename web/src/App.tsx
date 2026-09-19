@@ -83,18 +83,31 @@ export default function App() {
   const cardsLeft = mode === "worker" ? jobCards.length - index : workerCards.length - index;
 
   return (
-    <div className="mm">
-      <header>
-        <h1>MeisterMatch (prototype)</h1>
-        <div className="tabs">
-          <button className={mode === "worker" ? "active" : ""} onClick={() => setMode("worker")}>
-            Worker view
-          </button>
-          <button className={mode === "employer" ? "active" : ""} onClick={() => setMode("employer")}>
-            Employer view
-          </button>
-        </div>
+    <div className="app">
+      <div className="app-grid" />
+      <div className="app-blob app-blob-1" />
+      <div className="app-blob app-blob-2" />
+
+      <header className="app-header">
+        <p className="app-brand">MeisterMatch</p>
+        <h1 className="app-title">Swipe Right for a Meister<br />Who Shows Up</h1>
+        <p className="app-subtitle">Reciprocal human-AI matching for skilled trades</p>
       </header>
+
+      <div className="tabs">
+        <button
+          className={`tab-btn ${mode === "worker" ? "active" : ""}`}
+          onClick={() => setMode("worker")}
+        >
+          Worker view
+        </button>
+        <button
+          className={`tab-btn ${mode === "employer" ? "active" : ""}`}
+          onClick={() => setMode("employer")}
+        >
+          Employer view
+        </button>
+      </div>
 
       {error && <p className="error">{error} — is the API running on :3001?</p>}
 
@@ -128,7 +141,9 @@ export default function App() {
 
       {match && (
         <div className="match-banner">
-          Match! {match.worker_id} + {match.job_id} ({match.id})
+          <span className="match-banner-text">
+            <span className="badge badge-blue">Match!</span> {match.worker_id} + {match.job_id} ({match.id})
+          </span>
           <button onClick={() => setMatch(null)}>Dismiss</button>
         </div>
       )}
@@ -141,14 +156,14 @@ export default function App() {
             <WorkerCardView card={workerCards[index]} />
           )}
           <div className="actions">
-            <button className="pass" onClick={() => swipe("pass")}>
+            <button className="action-btn action-btn-pass" onClick={() => swipe("pass")}>
               Pass
             </button>
-            <button className="like" onClick={() => swipe("like")}>
+            <button className="action-btn action-btn-like" onClick={() => swipe("like")}>
               Like
             </button>
           </div>
-          <p className="left">{cardsLeft - 1} cards left</p>
+          <p className="cards-left">{cardsLeft - 1} cards left</p>
         </div>
       ) : (
         <p className="done">Deck finished. Switch sides to match from the other direction.</p>
@@ -159,7 +174,7 @@ export default function App() {
         <ul>
           {myMatches.map((m) => (
             <li key={m.id}>
-              {m.id}: {m.worker_id} + {m.job_id}
+              <strong>{m.id}</strong>: {m.worker_id} + {m.job_id}
             </li>
           ))}
         </ul>
@@ -171,8 +186,10 @@ export default function App() {
 function Score({ score }: { score: number }) {
   return (
     <div className="score">
-      <div className="bar" style={{ width: `${score}%` }} />
-      <span>{score}</span>
+      <div className="score-bar-container">
+        <div className="score-bar" style={{ width: `${score}%` }} />
+      </div>
+      <span className="score-value">{score}</span>
     </div>
   );
 }
@@ -185,8 +202,12 @@ function JobCardView({ card }: { card: JobCard }) {
         {card.job.trade} · {card.job.district} · {card.job.pay_min_eur_h}–
         {card.job.pay_max_eur_h} EUR/h · {card.job.season}
       </p>
-      <p>{card.job.description_lv}</p>
-      <p className="meta">Needs: {card.job.required_skills.join(", ")}</p>
+      <p className="card-description">{card.job.description_lv}</p>
+      <div className="skills-tag">
+        {card.job.required_skills.map((s) => (
+          <span key={s}>{s}</span>
+        ))}
+      </div>
       <Score score={card.score} />
       <ul className="reasons">
         {card.reasons.map((r) => (
@@ -207,7 +228,11 @@ function WorkerCardView({ card }: { card: WorkerCard }) {
         {card.worker.trade} · {card.worker.experience_years} yrs · {card.worker.district} ·{" "}
         {card.worker.hourly_rate_eur} EUR/h · {card.worker.languages.join("/")}
       </p>
-      <p className="meta">Skills: {card.worker.skills.join(", ")}</p>
+      <div className="skills-tag">
+        {card.worker.skills.map((s) => (
+          <span key={s}>{s}</span>
+        ))}
+      </div>
       <Score score={card.score} />
       <ul className="reasons">
         {card.reasons.map((r) => (
