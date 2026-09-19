@@ -77,6 +77,36 @@
         "label": { "type": "string", "enum": ["relevant", "irrelevant"] },
         "by": { "type": "string", "enum": ["worker", "employer", "recruiter"] }
       }
+    },
+    "User": {
+      "type": "object",
+      "required": ["username", "password"],
+      "properties": {
+        "username": { "type": "string", "minLength": 3 },
+        "password": { "type": "string" }
+      }
+    },
+    "ChatMessage": {
+      "type": "object",
+      "required": ["id", "text", "by", "time"],
+      "properties": {
+        "id": { "type": "string" },
+        "text": { "type": "string" },
+        "by": { "type": "string" },
+        "time": { "type": "string" }
+      }
+    },
+    "SeedData": {
+      "type": "object",
+      "properties": {
+        "workers": { "type": "array", "items": { "$ref": "#/$defs/Worker" } },
+        "jobs": { "type": "array", "items": { "$ref": "#/$defs/Job" } },
+        "swipes": { "type": "array", "items": { "$ref": "#/$defs/Swipe" } },
+        "matches": { "type": "array", "items": { "$ref": "#/$defs/Match" } },
+        "feedback": { "type": "array", "items": { "$ref": "#/$defs/Feedback" } },
+        "users": { "type": "array", "items": { "$ref": "#/$defs/User" } },
+        "chats": { "type": "object", "additionalProperties": { "type": "array", "items": { "$ref": "#/$defs/ChatMessage" } } }
+      }
     }
   }
 }

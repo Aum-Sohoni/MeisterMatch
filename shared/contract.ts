@@ -64,12 +64,26 @@ export interface Feedback {
   by: "worker" | "employer" | "recruiter";
 }
 
+export interface User {
+  username: string;
+  password: string;
+}
+
+export interface ChatMessage {
+  id: string;
+  text: string;
+  by: string;
+  time: string;
+}
+
 export interface SeedData {
   workers: Worker[];
   jobs: Job[];
   swipes: Swipe[];
   matches: Match[];
   feedback: Feedback[];
+  users?: User[];
+  chats?: Record<string, ChatMessage[]>;
 }
 
 export type RankMode = "jobs_for_worker" | "workers_for_job";

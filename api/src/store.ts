@@ -1,7 +1,7 @@
 import { copyFileSync, existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import type { Match, SeedData, Swipe } from "../../shared/contract";
+import type { Match, SeedData, Swipe, User, ChatMessage } from "../../shared/contract";
 
 // JSON-file store (Phase 1). data/store.json starts as a copy of the
 // deterministic seed; swipes/matches/feedback accumulate at runtime.

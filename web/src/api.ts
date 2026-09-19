@@ -1,64 +1,67 @@
-import type {
-  Job,
-  Match,
-  RankedItem,
-  SwipeDirection,
-  Worker,
-} from "../../shared/contract";
+import type { Job, Match, Worker } from "../../shared/contract";
 
-export const API_BASE = "http://127.0.0.1:3001";
+let _token: string | null = null;
+export function setToken(t: string | null) { _token = t; }
+export function getToken() { return _token; }
 
-async function get<T>(path: string): Promise<T> {
-  const r = await fetch(`${API_BASE}${path}`);
+const BASE = "/api";
+
+async function fetchJson<T>(path: string, opts: RequestInit = {}): Promise<T> {
+  const headers: Record<string, string> = { "Content-Type": "application/json", ...(opts.headers as Record<string, string> ?? {}) };
+  if (_token) headers["Authorization"] = `Bearer ${_token}`;
+  const r = await fetch(`${BASE}${path}`, { ...opts, headers });
   if (!r.ok) throw new Error(`${path} -> ${r.status}`);
   return (await r.json()) as T;
 }
 
-async function post<T>(path: string, body: unknown): Promise<T> {
-  const r = await fetch(`${API_BASE}${path}`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
-  if (!r.ok) throw new Error(`${path} -> ${r.status}`);
-  return (await r.json()) as T;
-}
+// Auth
+export interface AuthUser { username: string; token: string }
+export const register = (username: string, password: string) =>
+  fetchJson<AuthUser>("/auth/register", { method: "POST", body: JSON.stringify({ username, password }) });
+export const login = (username: string, password: string) =>
+  fetchJson<AuthUser>("/auth/login", { method: "POST", body: JSON.stringify({ username, password }) });
+export const getMe = () => fetchJson<{ username: string }>("/auth/me");
+export const logout = () => fetchJson("/auth/logout", { method: "POST" });
 
-export interface JobCard extends RankedItem {
-  job: Job;
-}
+// Data
+export const getWorkers = () => fetchJson<Worker[]>("/workers");
+export const getJobs = () => fetchJson<Job[]>("/jobs");
 
-export interface WorkerCard extends RankedItem {
-  worker: Worker;
-}
-
-export const getWorkers = () => get<Worker[]>("/api/workers");
-export const getJobs = () => get<Job[]>("/api/jobs");
-
+// Deck
+export interface JobCard extends RankedItem { job: Job }
+export interface WorkerCard extends RankedItem { worker: Worker }
 export const getWorkerDeck = (workerId: string) =>
-  get<{ worker: Worker; cards: JobCard[] }>(`/api/deck/worker/${workerId}`);
-
+  fetchJson<{ worker: Worker; cards: JobCard[] }>(`/deck/worker/${workerId}`);
 export const getJobDeck = (jobId: string) =>
-  get<{ job: Job; cards: WorkerCard[] }>(`/api/deck/job/${jobId}`);
+  fetchJson<{ job: Job; cards: WorkerCard[] }>(`/deck/job/${jobId}`);
 
+// Swipe
 export const postSwipe = (
   actor_type: "worker" | "employer",
   actor_id: string,
   target_type: "job" | "worker",
   target_id: string,
-  direction: SwipeDirection
+  direction: "like" | "pass"
 ) =>
-  post<{ swipe: { id: string }; match: Match | null }>("/api/swipes", {
-    actor_type,
-    actor_id,
-    target_type,
-    target_id,
-    direction,
+  fetchJson<{ swipe: { id: string }; match: Match | null }>("/swipes", {
+    method: "POST", body: JSON.stringify({ actor_type, actor_id, target_type, target_id, direction }),
   });
 
+// Matches
 export const getMatches = (worker_id?: string, job_id?: string) => {
   const q = new URLSearchParams();
   if (worker_id) q.set("worker_id", worker_id);
   if (job_id) q.set("job_id", job_id);
-  return get<Match[]>(`/api/matches?${q.toString()}`);
+  return fetchJson<Match[]>(`/matches?${q.toString()}`);
 };
+
+// Chat
+export interface ChatMessage { id: string; text: string; by: string; time: string }
+export const getChats = (matchId: string) =>
+  fetchJson<ChatMessage[]>(`/chats/${matchId}`);
+export const postChat = (matchId: string, text: string) =>
+  fetchJson<ChatMessage>(`/chats/${matchId}`, { method: "POST", body: JSON.stringify({ text }) });
+
+// Types
+export interface RankedItem { id: string; score: number; reasons: string[] }
+export interface RankResponse { results: RankedItem[] }
