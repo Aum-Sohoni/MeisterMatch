@@ -189,7 +189,7 @@ app.post("/api/chats/:matchId", requireAuth, (req, res) => {
 const buildPath = join(ROOT, "web", "dist");
 if (existsSync(buildPath)) {
   app.use(express.static(buildPath));
-  app.get("*", (_req, res) => { res.sendFile(join(buildPath, "index.html")); });
+  app.use((_req, res) => { res.sendFile(join(buildPath, "index.html")); });
 }
 
 app.listen(PORT, () => {
